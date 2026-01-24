@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* AUTH PAGES */
+.auth-box {
+  max-width: 420px;
+  margin: 100px auto;
+  padding: 30px;
+  background: #020617;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  background: #4f46e5;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.auth-box button:hover {
+  background: #4338ca;
+}
+
+/* DASHBOARD */
+.dashboard {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+}
+
+.user-info {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* SCHOLARSHIP CARD */
+.card {
+  background: #020617;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #1e293b;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.card .deadline {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.deadline.red {
+  color: #f87171;
+}
+
+.deadline.green {
+  color: #4ade80;
+}
+
+.ai-box {
+  background: #020617;
+  border-left: 4px solid #6366f1;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #c7d2fe;
+}
+
+.card button {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #22c55e;
+  border: none;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #16a34a;
+}
+
+/* SOP SECTION */
+.sop-section {
+  margin-top: 50px;
+  padding: 20px;
+  background: #020617;
+  border-radius: 14px;
+  border: 1px solid #1e293b;
+}
+
+.sop-section button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #6366f1;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #ef4444;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
