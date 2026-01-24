@@ -1,3 +1,1 @@
 # ScholarAI
-
-hello
