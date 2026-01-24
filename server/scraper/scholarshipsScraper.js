@@ -5,11 +5,11 @@ import pkg from "pg";
 const { Pool } = pkg;
 
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "your_db",
-  password: "password",
-  port: 5432,
+  user: "*",
+  host: "*",
+  database: "*",
+  password: "*",
+  port: 0,
 });
 
 export async function scrapeScholarships() {
