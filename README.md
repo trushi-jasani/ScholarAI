@@ -1,41 +1,87 @@
-# ScholarAI
+# 🎓 ScholarAI – Intelligent Scholarship Finder
 
-ScholarAI is a web application that helps students find scholarships based on their academic and financial profile.  
-It uses strict eligibility filtering, automated web scraping, and AI to generate Statements of Purpose (SOP).
+ScholarAI is a full-stack web application that helps students discover scholarships that truly match their academic and financial profile.  
+It combines **strict eligibility filtering**, **automated web scraping**, and **AI-powered SOP generation** into a single platform.
 
 ---
 
-## Features
+## 📌 Problem Statement
 
-- User registration and login
-- Strict scholarship matching based on:
+Students often miss eligible scholarships due to scattered information, unclear criteria, and lack of guidance in writing SOPs.  
+ScholarAI solves this by:
+- Collecting scholarship data automatically
+- Filtering only **100% eligible** scholarships
+- Assisting students with **AI-generated SOPs**
+
+---
+
+## ✨ Key Features
+
+### 🔐 User Authentication
+- Register and login system
+- Stores academic profile:
   - Income
   - Category
   - Course
-- AI-based SOP generation
-- Automated scholarship scraping
-- Email notifications for new scholarships
+  - GPA
+- Data persisted using SQLite
 
 ---
 
-## Tech Stack
+### 🔍 Strict Scholarship Matching
+Scholarships are shown **only if all conditions are satisfied**:
 
-### Frontend
-- React.js
-- Vite
-- React Router
-- Axios
+- User income ≤ scholarship income limit  
+- User category is allowed  
+- Course relevance match  
 
-### Backend
-- Node.js
-- Express.js
-- SQLite
-- Puppeteer
-- Cheerio
-- Google Gemini API / OpenAI
-- Nodemailer
+Eligible scholarships are ranked using:
+- Course match score
+- AI relevance boost
 
 ---
 
-## Project Structure
+### 📝 AI SOP Generator
+- Generates a professional Statement of Purpose
+- Personalized using:
+  - User profile
+  - Selected scholarship details
+- Powered by:
+  - Google Gemini API
+  - OpenAI (fallback)
+
+---
+
+### 🤖 Automated Scholarship Scraper
+- Fetches scholarship data from external websites
+- Extracts:
+  - Scholarship name
+  - Income limit
+  - Allowed categories
+  - Allowed courses
+  - Deadline
+- Built using:
+  - Puppeteer (browser automation)
+  - Cheerio (HTML parsing)
+
+---
+
+### 📧 Email Notifications
+- Sends email alerts when new matching scholarships are added
+- Uses Nodemailer
+- Supports Gmail and test mail services
+
+---
+
+## 🏗️ Architecture
+
+The project follows a **Client–Server architecture**:
+
+- **Frontend:** React + Vite  
+- **Backend:** Node.js + Express  
+- **Database:** SQLite  
+
+---
+
+## 📁 Project Structure
 
