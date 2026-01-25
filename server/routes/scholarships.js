@@ -1,35 +1,89 @@
 import express from "express";
+import { scrapeScholarships } from "../scraper/scholarshipsScraper.js";
+import { saveScholarshipsToDB } from "../scraper/saveToDB.js";
 import { pool } from "../db.js";
-import { explainScholarship } from "../ai/llm.js";
+import { sendMatchEmail } from "../services/emailService.js";
+import { getMatchesForUser, triggerMatchNotifications } from "../services/matchingService.js";
 
 const router = express.Router();
 
+router.get("/scrape", async (req, res) => {
+  try {
+    const data = await scrapeScholarships();
+    await saveScholarshipsToDB(data);
+
+    res.json({
+      message: "Scholarships scraped and saved successfully",
+      count: data.length,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Scraping failed" });
+  }
+});
+
 router.post("/recommend", async (req, res) => {
-  const { income, category, course } = req.body;
+  try {
+    const matches = await getMatchesForUser(req.body);
 
-  const result = await pool.query(
-    `SELECT *,
-      (CASE WHEN income_limit >= $1 THEN 40 ELSE 0 END +
-       CASE WHEN $2 = ANY(category_allowed) THEN 30 ELSE 0 END +
-       CASE WHEN $3 = ANY(course_allowed) THEN 30 ELSE 0 END) AS matchscore
-     FROM scholarships
-     WHERE income_limit >= $1
-     AND $2 = ANY(category_allowed)
-     AND $3 = ANY(course_allowed)`,
-    [income, category, course]
-  );
+    // Trigger Notification for top matches
+    // Note: req.body must contain id, email, name for notifications to work
+    await triggerMatchNotifications(req.body, matches);
 
-  const aiResults = await Promise.all(
-    result.rows.map(async s => ({
-      ...s,
-      ai_reason: await explainScholarship(
-        { income, category, course },
-        s
-      )
-    }))
-  );
+    res.json(matches);
+  } catch (err) {
+    console.error("Recommendation Error:", err.message);
+    res.status(500).json({ error: "Matching failed" });
+  }
+});
 
-  res.json(aiResults);
+router.post("/all-scored", async (req, res) => {
+  try {
+    const matches = await getMatchesForUser(req.body, false); // false = don't filter eligibility
+    res.json(matches);
+  } catch (err) {
+    console.error("All-Scored Error:", err.message);
+    res.status(500).json({ error: "Scoring failed" });
+  }
+});
+
+router.post("/notify", async (req, res) => {
+  const { user, scholarship } = req.body;
+
+  if (!user || !scholarship) {
+    return res.status(400).json({ error: "Missing user or scholarship data" });
+  }
+
+  try {
+    console.log(`Manual notification request for ${scholarship.name} to ${user.email}`);
+    const result = await sendMatchEmail(user.email, user.name, scholarship);
+
+    if (result.success) {
+      // Track it
+      await pool.query(
+        "INSERT OR IGNORE INTO user_notifications (user_id, scholarship_id) VALUES ($1,$2)",
+        [user.id, scholarship.id]
+      );
+      res.json({ message: "Notification sent successfully", previewUrl: result.previewUrl });
+    } else {
+      res.status(400).json({
+        error: "Failed to send email",
+        message: result.error || "Please check your server configuration."
+      });
+    }
+  } catch (err) {
+    console.error("Manual Notification Error:", err.message);
+    res.status(500).json({ error: "System Error", message: err.message });
+  }
+});
+
+router.get("/", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM scholarships ORDER BY deadline ASC");
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 export default router;

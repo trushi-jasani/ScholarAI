@@ -1,19 +1,24 @@
 import express from "express";
-import { updateScholarships } from "../scraper/saveToDB.js";
+import { scrapeScholarships } from "../scraper/scholarshipsScraper.js";
+import { saveScholarshipsToDB } from "../scraper/saveToDB.js";
 
 const router = express.Router();
 
-router.get("/scrape", async (req, res) => {
+router.get("/sync-scholarships", async (req, res) => {
   try {
-    const count = await updateScholarships();
+    const data = await scrapeScholarships();
+
+    // Clear old data for a fresh sync
+    await pool.query("DELETE FROM scholarships");
+    await saveScholarshipsToDB(data);
+
     res.json({
-      success: true,
-      inserted: count,
-      message: "Scholarships scraped and saved"
+      message: "Scholarships synced successfully. Database has been refreshed.",
+      count: data.length,
     });
   } catch (err) {
-    console.error("SCRAPE ERROR:", err.message);
-    res.status(500).json({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: "Sync failed" });
   }
 });
 

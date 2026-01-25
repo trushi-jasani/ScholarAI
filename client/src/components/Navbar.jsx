@@ -1,26 +1,55 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function Navbar({ setUser }) {
-  const navigate = useNavigate();
+function Navbar({ user, setUser }) {
+  const location = useLocation();
 
-  const logout = () => {
-    setUser(null);
-    navigate("/");
-  };
+  const isActive = (path) => location.pathname === path ? "active" : "";
 
   return (
     <nav className="navbar">
-      <div className="nav-left">
-        <span className="logo">AI Scholarship Finder</span>
-      </div>
+      <Link to="/" className="logo">
+        <span style={{ fontSize: '1.5rem' }}>🎓</span> ScholarAI
+      </Link>
 
       <div className="nav-links">
-        <Link to="/dashboard">Home</Link>
-        <Link to="/scholarships">Scholarships</Link>
-        <Link to="/sop">SOP Assistant</Link>
-        <Link to="/applications">Applications</Link>
-        <button onClick={logout} className="logout-btn">Logout</button>
+        <Link to="/" className={isActive("/")}>Home</Link>
+        <Link to="/scholarships" className={isActive("/scholarships")}>Scholarships</Link>
+        {user && (
+          <>
+            <Link to="/matches" className={isActive("/matches")}>Matches</Link>
+            <Link to="/sop" className={isActive("/sop")}>SOP</Link>
+          </>
+        )}
+      </div>
+
+      <div className="nav-auth">
+        {user ? (
+          <>
+            <Link to="/profile" className="profile-pill">
+              <span style={{ opacity: 0.8 }}>👤</span>
+              {user.name}
+            </Link>
+            <button
+              className="logout-icon-btn"
+              onClick={() => setUser(null)}
+              title="Logout"
+            >
+              🚪
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className={isActive("/login")} style={{ color: 'var(--text-muted)', textDecoration: 'none', fontWeight: 600 }}>
+              Login
+            </Link>
+            <Link to="/register" className="btn-primary">
+              Get Started
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
 }
+
+export default Navbar;
