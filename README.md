@@ -21,9 +21,9 @@ ScholarAI solves this problem by:
 |----------------------------------|----------------------------------------|-------------------------------------|
 | ![Home Page](images/home_page.png) | ![user](images/user_profile.png) |![Scholarships](images/scholarship.png) |
 
-| Matches                                                  | SOP Generator                     |
+| Matches                                                  | SOP Generator                  |
 |----------------------------------------------------------|--------------------------------|
-|  ![matchedScholarships](images/mateched-scholarship.png) |  ![SOP](images/sop_page.png)|
+|  ![matchedScholarships](images/matched-scholarship.png) |  ![SOP](images/sop_page.png)|
 
 
 ---
