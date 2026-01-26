@@ -17,13 +17,13 @@ ScholarAI solves this problem by:
 
 ### 📸 Application Screenshots
 
-| Home Page                        | All Scholarships                       | SOP Generator                       |
+| Home Page                        |User Profile                       | All Scholarships                         |
 |----------------------------------|----------------------------------------|-------------------------------------|
-| ![Home Page](images/home_page.png) | ![Scholarships](images/scholarship.png) | ![SOP](images/sop_page.png) |
+| ![Home Page](images/home_page.png) | ![Scholarships](images/scholarship.png) |![Scholarships](images/scholarship.png) |
 
-| User Profile                     | Login Page                     |
+| Matches                  | SOP Generator                     |
 |----------------------------------|--------------------------------|
-| ![Home Page](images/home_page.png) | ![Home Page](images/home_page.png)|
+|  ![Scholarships](images/scholarship.png) |  ![SOP](images/sop_page.png)|
 
 
 ---
