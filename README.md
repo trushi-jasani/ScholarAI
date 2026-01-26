@@ -17,17 +17,22 @@ ScholarAI solves this problem by:
 
 ### 📸 Application Screenshots
 
-![ScholarAI Dashboard](./images/home_page.png)
+<img src="./images/home_page.png" alt="Home Page" width="400"/>
+
 *Home Page - Welcome Interface*
 
-![All Scholarships](./images/scholarship.png)
+<img src="./images/scholarship.png" alt="Scholarships" width="400"/>
+
 *Scholarship Listing - Browse Available Opportunities*
 
-![SOP Generator](./images/sop_page.png)
+<img src="./images/sop_page.png" alt="SOP Generator" width="400"/>
+
 *AI-Powered SOP Generator*
 
-![User Profile](./images/profile.png)
+<img src="./images/profile.png" alt="User Profile" width="400"/>
+
 *User Profile & Academic Details*
+
 
 ---
 
