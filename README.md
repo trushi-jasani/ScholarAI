@@ -5,6 +5,7 @@ It combines automated web scraping, strict eligibility matching, and an AI-power
 
 ---
 
+
 ## 📌 Project Overview
 
 Students often miss suitable scholarships due to scattered information and complex eligibility criteria.  
@@ -14,18 +15,22 @@ ScholarAI solves this problem by:
 - Showing only strictly eligible scholarships
 - Helping students generate professional SOPs using AI
 
+### 📸 Application Screenshots
+
 ![ScholarAI Dashboard](./images/home_page.png)
-*Main Dashboard - Scholarship Matching Interface*
+*Home Page - Welcome Interface*
+
+![All Scholarships](./images/scholarship.png)
+*Scholarship Listing - Browse Available Opportunities*
 
 ![SOP Generator](./images/sop_page.png)
 *AI-Powered SOP Generator*
 
-![All Scholarship](./images/scholarship.png)
-*User Profile & Academic Details*
-![User profile](./images/profile.png)
+![User Profile](./images/profile.png)
 *User Profile & Academic Details*
 
 ---
+
 
 ## 🏗️ Architecture
 
