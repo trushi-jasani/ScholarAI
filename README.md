@@ -16,22 +16,28 @@ ScholarAI solves this problem by:
 - Helping students generate professional SOPs using AI
 
 ### 📸 Application Screenshots
+<div align="center">
 
+### Home Page
 <img src="./images/home_page.png" alt="Home Page" width="400"/>
 
-*Home Page - Welcome Interface*
+### Login Page
+<img src="./images/login_page.png" alt="Login Page" width="400"/>
 
+### Scholarships Page
 <img src="./images/scholarship.png" alt="Scholarships" width="400"/>
 
-*Scholarship Listing - Browse Available Opportunities*
+</div>
 
+<div align="center">
+
+### SOP Generator
 <img src="./images/sop_page.png" alt="SOP Generator" width="400"/>
 
-*AI-Powered SOP Generator*
-
+### User Profile
 <img src="./images/profile.png" alt="User Profile" width="400"/>
 
-*User Profile & Academic Details*
+</div>s
 
 
 ---
