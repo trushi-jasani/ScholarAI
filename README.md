@@ -23,7 +23,7 @@ ScholarAI solves this problem by:
 
 | Matches                  | SOP Generator                     |
 |----------------------------------|--------------------------------|
-|  ![matchesScholarships](images/mateched-scholarship.png) |  ![SOP](images/sop_page.png)|
+|  ![matchedScholarships](images/mateched-scholarship.png) |  ![SOP](images/sop_page.png)|
 
 
 ---
