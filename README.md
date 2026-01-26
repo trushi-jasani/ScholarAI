@@ -14,26 +14,22 @@ ScholarAI solves this problem by:
 - Showing only strictly eligible scholarships
 - Helping students generate professional SOPs using AI
 
+![ScholarAI Dashboard](./images/home_page.png)
+*Main Dashboard - Scholarship Matching Interface*
+
+![SOP Generator](./images/sop_page.png)
+*AI-Powered SOP Generator*
+
+![All Scholarship](./images/scholarship.png)
+*User Profile & Academic Details*
+![User profile](./images/profile.png)
+*User Profile & Academic Details*
+
 ---
 
 ## 🏗️ Architecture
 
 ScholarAI follows a Client–Server architecture.
-
-### Frontend (Client)
-- Built with React.js and Vite
-- Modern glassmorphism UI
-- Communicates with backend using REST APIs
-
-### Backend (Server)
-- Built with Node.js and Express
-- Handles user authentication, scholarship data, AI services, and notifications
-
-### Database
-- SQLite
-- Stores users, scholarships, and applications
-
----
 
 ## ✨ Key Features
 
@@ -89,6 +85,11 @@ Eligible scholarships are ranked using:
 - Nodemailer
 - Google Gemini API
 - OpenAI API
+
+---
+### Database
+- SQLite
+- Stores users, scholarships, and applications
 
 ---
 
