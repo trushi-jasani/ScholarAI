@@ -19,11 +19,11 @@ ScholarAI solves this problem by:
 
 | Home Page                        |User Profile                       | All Scholarships                         |
 |----------------------------------|----------------------------------------|-------------------------------------|
-| ![Home Page](images/home_page.png) | ![Scholarships](images/scholarship.png) |![Scholarships](images/scholarship.png) |
+| ![Home Page](images/home_page.png) | ![user](images/user_profile.png) |![Scholarships](images/scholarship.png) |
 
 | Matches                  | SOP Generator                     |
 |----------------------------------|--------------------------------|
-|  ![Scholarships](images/scholarship.png) |  ![SOP](images/sop_page.png)|
+|  ![matchesScholarships](images/scholarship.png) |  ![SOP](images/sop_page.png)|
 
 
 ---
